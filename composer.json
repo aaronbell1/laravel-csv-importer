@@ -1,0 +1,20 @@
+{
+    "name": "aaronbell1/laravel-csv-importer",
+    "authors": [
+        {
+            "name": "Aaron Bell",
+            "email": "aaron@netready.biz"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Aaronbell1\\LaravelCsvImporter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aaronbell1\\LaravelCsvImporter\\Tests\\": "tests/"
+        }
+    }
+}
