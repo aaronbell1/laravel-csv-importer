@@ -155,6 +155,29 @@ class CsvLoader
         return count($this->data);
     }
 
+    /**
+     * Return if there are rows with a duplicate value in the given column
+     * @param $columnName
+     * @return bool
+     */
+    public function hasDuplicates($columnName)
+    {
+        if (!$columnName) {
+            return false;
+        }
+
+        return count(
+                array_filter(
+                    array_count_values(
+                        array_map(function ($data) use ($columnName) {
+                            return $data[$columnName];
+                        }, $this->data)),
+                    function ($rows) {
+                        return $rows > 1;
+                    })
+            ) > 0;
+    }
+
     static function formatString($string)
     {
         return str_replace(' ', '_', mb_strtolower($string));
